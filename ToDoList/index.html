@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+
+
+    <meta charset="UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Document</title>
+
+
+    <style>
+
+
+      
+
+
+        #block1 {
+
+
+            background-color: #FDF5E6
+
+
+;
+
+
+        
+
+
+            height: auto;
+
+
+            margin-top: 0px;
+
+
+        }
+
+
+       
+
+
+        
+
+
+        h1 {
+
+
+            font-size: 50px;
+
+
+        }
+
+
+        
+
+
+        button {
+
+
+            border-radius: 10px;
+
+
+            background-color: #D8DBE2;
+
+
+            
+
+
+        }
+
+
+        input {
+
+
+            height: 20px;
+
+
+            width: 300px;
+
+
+            border: solid 1px;
+
+
+            border-radius: 10px;
+
+
+        }
+
+
+        
+
+
+        form {
+
+
+            margin: 0px;
+
+
+            /* width: 50%; */
+
+
+            
+
+
+            text-align:center;
+
+
+            background-color: #F0F8FF;
+
+
+        }
+
+
+        
+
+
+        ol {
+
+
+            width: 200px;
+
+
+            align-items: center;
+
+
+            margin: auto;
+
+
+            padding: auto;
+
+
+        }
+
+
+        
+
+
+        li {
+
+
+            padding: 20px;
+
+
+            width: 1000px;
+
+
+        }
+
+
+        
+
+
+        #cancel {
+
+
+            padding: auto;
+
+
+            margin: 10px;
+
+
+        }
+
+
+        .completedwork {
+
+
+            background-color:#D9D9E0;
+
+
+            padding: 20px;
+
+
+        }
+
+
+        #inputdesign {
+
+
+            padding: 0px 0px 50px 0px;
+
+
+        }
+
+
+        h1 {
+
+
+            padding: 50px 0px 0px 0px;
+
+
+        }
+
+
+        .x {
+
+
+            margin: 0px 0px 0px 10px;
+
+
+        }
+
+
+        
+
+
+     
+
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+    
+
+
+    <form id="inputbox" >
+
+
+        <h1>To-Do List</h1>
+
+
+        <div id="inputdesign">
+
+
+            <input id="input" type="text" placeholder="Add an item!">
+
+
+            <button onclick="myFunction()" type="button">Submit</button>
+
+
+            <button type="reset" onclick="clearlist();" >Clear List</button>
+
+
+        </div>
+
+
+    </form>  
+
+
+    
+
+
+    <div id= "block1">
+
+
+    <ol type="text" id="todo"></ol>
+
+
+    </div>
+
+
+  
+
+
+</body>
+
+
+<script>
+
+
+    function clearlist () {
+
+
+        if (confirm('This will delete the entire . Are you sure?')){
+
+
+            const list = document.getElementById("todo").children.length;
+
+
+            for (var i = 0; i < list; ++i ) {
+
+
+                document.getElementById("todo").firstElementChild.remove();
+
+
+            }
+
+
+        }
+
+
+        else {}
+
+
+    };
+
+
+    function myFunction () {
+
+
+        //Creating a list and the text to go along with from the input
+
+
+        const node = document.createElement("li");
+
+
+        // node.id = document.getElementById("input").value
+
+
+        const textnode = document.createTextNode(document.getElementById("input").value);
+
+
+        node.appendChild(textnode);
+
+
+        document.getElementById("todo").appendChild(node);
+
+
+        //Creating the button
+
+
+        const btn = document.createElement("button");
+
+
+        btn.innerHTML = "X";
+
+
+        btn.id =  document.getElementById("input").value ;
+
+
+        btn.onclick = function () {
+
+
+            document.getElementById(this.id).parentElement.remove()
+
+
+            
+
+
+        };
+
+
+        btn.setAttribute("class","x");         
+
+
+        node.appendChild(btn);
+
+
+        const btn2 = document.createElement("button");
+
+
+        btn2.innerHTML = "DONE";
+
+
+        btn2.id = document.getElementById("input").value +"done"
+
+
+        btn2.onclick = function () {
+
+
+            document.getElementById(this.id).parentElement.setAttribute("class","completedwork");                 
+
+
+        }
+
+
+        node.appendChild(btn2)
+
+
+    };
+
+
+//REMOVE AN ITEM FROM THE LIST
+
+
+
+// addEventListener("click", parentElement.
+
+
+// document.querySelector("button").parentElement
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+ 
+
+
+   
+
+
+</script>
+
+
+
+
+</html>

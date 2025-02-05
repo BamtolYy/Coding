@@ -1,0 +1,421 @@
+<html lang="en">
+
+
+<head>
+
+
+    <meta charset="UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>통장</title>
+
+
+</head>
+
+
+<style>
+
+
+    header, h2{
+
+
+        text-align: center;
+
+
+        width: 1500px;
+
+
+    }
+
+
+    div {
+
+
+    margin: 0px;
+
+
+    padding: 0px 100px;
+
+
+    width: 1500px;
+
+
+    }
+
+
+    h2 {
+
+
+        color: green
+
+
+    }
+
+
+    #name, #date, #amount {
+
+
+        height: 30px;        
+
+
+        border: solid 1px;
+
+
+        border-color:#D3D3D3;
+
+
+        border-radius: 5px;
+
+
+        width: 615px;
+
+
+        margin:0 0 0 10px;
+
+
+    }
+
+
+    #date {
+
+
+        margin: 0 100px 0 10px;
+
+
+    }
+
+
+    #name {
+
+
+        width: 1400px;
+
+
+    }
+
+
+    p {
+
+
+        font-weight: bold;
+
+
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+
+
+    }
+
+
+    #addexpense {
+
+
+        margin: auto;
+
+
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+
+        font-weight:500;
+
+
+        font-size: 15px;
+
+
+        background-color: #008000;
+
+
+        color: white;
+
+
+        Height: 40px;
+
+
+        width: 120px;
+
+
+        border-color:none;
+
+
+        border: 0px;
+
+
+        border-radius: 5px;
+
+
+        box-shadow: 0px !important;        
+
+
+    } 
+
+
+    #buttonid {
+
+
+        display: flex;
+
+
+        justify-content: center;
+
+
+    }
+
+
+    table, td, th {  
+
+
+    border: 1px solid #ddd;
+
+
+    text-align: left;
+
+
+    }
+
+
+    table {
+
+
+    border-collapse: collapse;
+
+
+    width: 100%;
+
+
+    }
+
+
+    th, td {
+
+
+    padding: 15px;
+
+
+    margin-left: 0px;
+
+
+    padding-left: 10px;
+
+
+    }
+
+
+    th {
+
+
+        background-color: white;
+
+
+    }
+
+
+    tr:nth-child(odd) {
+
+
+        background-color:#ddd;
+
+
+    }
+
+
+</style>
+
+
+<body>
+
+
+    <header>
+
+
+        <h1>Expense Tracker</h1>
+
+
+        <h2>
+
+
+            Add A New Item:
+
+
+        </h2>
+
+
+    </header>
+
+
+    <div id="input">
+
+
+       
+
+
+        <p>
+
+
+            NAME:<input type="text" id="name" placeholder="Where was the expense made?">
+
+
+        </p>
+
+
+        <p>
+
+
+            Date:<input type="date" id="date" >
+
+
+            Amount:<input type="text" id="amount">
+
+
+        </p>
+
+
+        <p id="buttonid"><button id="addexpense" onclick="expense()">Add Expense</button></p>
+
+
+    </div>
+
+
+    <div>
+
+
+        <Table>
+
+
+            <thead>
+
+
+                <tr>
+
+
+                    <th>
+
+
+                       Name 
+
+
+                    </th>
+
+
+                    <th>
+
+
+                        Date
+
+
+                    </th>
+
+
+                    <th>
+
+
+                        Amount
+
+
+                    </th>
+
+
+                </tr>
+
+
+            </thead>
+
+
+            <tbody id="records"></tbody>
+
+
+              
+
+
+        </Table>
+
+
+    </div>
+
+
+</body>
+
+
+<script>
+
+
+    function expense() {
+
+
+        const record = document.createElement("tr")
+
+
+        const detail1= document.createElement("td")
+
+
+        const detail2= document.createElement("td")
+
+
+        const detail3= document.createElement("td")
+
+
+        const name = document.createTextNode(document.getElementById("name").value);
+
+
+        const date = document.createTextNode(document.getElementById("date").value);
+
+
+        const amount = document.createTextNode("$" + document.getElementById("amount").value);
+
+
+        
+
+
+        detail1.appendChild(name);
+
+
+        detail2.appendChild(date);
+
+
+        detail3.appendChild(amount);
+
+
+        record.appendChild(detail1);
+
+
+        record.appendChild(detail2);
+
+
+        record.appendChild(detail3);
+
+
+        document.getElementById("records").appendChild(record)
+
+
+        const btn = document.createElement("button");
+
+
+        btn.id = document.getElementById("name").value+document.getElementById("date").value+document.getElementById("amount").value
+
+
+        btn.innerHTML = "X"
+
+
+        btn.onclick = function () {
+
+
+            document.getElementById(this.id).parentElement.remove()
+
+
+        }
+
+
+        record.appendChild(btn)
+
+
+    }
+
+
+</script>
+
+
+</html>
