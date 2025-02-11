@@ -1,3 +1,6 @@
 [submodule "React/movie_app_2022"]
 	path = React/movie_app_2022
 	url = https://github.com/BamtolYy/movie_app_2022.git
+[submodule "Python/python-for-aerospace"]
+	path = Python/python-for-aerospace
+	url = https://github.com/ANG13T/python-for-aerospace.git
